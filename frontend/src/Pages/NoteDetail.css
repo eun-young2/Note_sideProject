@@ -1,0 +1,234 @@
+/* NoteDetail.css (상세 화면 전용 스타일링) */
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://source.unsplash.com/random/1920x1080?pastel,sky');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card {
+    width: 450px;
+    padding: 25px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .input-box {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.8);
+    outline: none;
+  }
+  
+  textarea.input-box {
+    resize: vertical;
+    height: 150px;
+  }
+  
+  .back-btn {
+    background-color: #fbbc04;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .back-btn:hover {
+    background-color: #e6a503;
+  }
+  
+  .note-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .delete-btn {
+    background-color: #ea4335;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d93025;
+  }
+  
+  .confirm-btn {
+    background-color: #4285f4;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .confirm-btn:hover {
+    background-color: #357ae8;
+  }
+  
+  .note-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: center;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 10px;  /* 🔥 "수정"과 "확인" 버튼 간격 조절 */
+  }
+  
+  .delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .confirm-btn {
+    background-color: #4d90fe;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-btn {
+    background-color: #ffa500;  /* 🔥 수정 버튼 색상 */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-btn:hover {
+    background-color: #ff8c00;
+  }
+
+  .background {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+  }
+  
+  .card {
+    width: 400px;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ✅ 다크모드 스타일 */
+  .background.dark {
+    background-color: #222;
+  }
+  
+  .dark .card {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .dark .input-box {
+    background-color: #444;
+    color: white;
+    border: 1px solid #666;
+  }
+  
+  .dark .input-box::placeholder {
+    color: #bbb;
+  }
+  
+  .dark .delete-btn {
+    background-color: #ff6b6b;
+  }
+  
+  .dark .confirm-btn {
+    background-color: #4d90fe;
+  }
+  
+  .dark .edit-btn {
+    background-color: #ffa500;
+  }
+  
+  .dark .back-btn {
+    background-color: #ffcc00;
+    color: black;
+  }
+  
+  /* ✅ 다크모드 토글 스위치 */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .switch input { 
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #4d90fe;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+  
+  
+  

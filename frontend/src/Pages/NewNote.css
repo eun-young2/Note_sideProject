@@ -1,0 +1,158 @@
+.background {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+  }
+  
+  .card {
+    width: 400px;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .input-box {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 16px;
+  }
+  
+  .save-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    background: #4d90fe;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .save-btn:hover {
+    background: #357ae8;
+  }
+  
+  .back-btn {
+    background: #ffcc00;
+    color: black;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .background {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+  }
+  
+  .card {
+    width: 400px;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  /* ✅ 다크모드 스타일 */
+  .background.dark {
+    background-color: #222;
+  }
+  
+  .dark .card {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .dark .input-box {
+    background-color: #444;
+    color: white;
+    border: 1px solid #666;
+  }
+  
+  .dark .input-box::placeholder {
+    color: #bbb;
+  }
+  
+  .dark .save-btn {
+    background-color: #4d90fe;
+  }
+  
+  .dark .back-btn {
+    background-color: #ffcc00;
+    color: black;
+  }
+  
+  /* ✅ 다크모드 토글 스위치 */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .switch input { 
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #4d90fe;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+  

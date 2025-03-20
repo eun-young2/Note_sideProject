@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  background: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-container.dark {
+  background: #242424;
+}
+
+.card {
+  width: 400px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.dark .card {
+  background: #121212;
+  color: #ffffff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  font-size: 22px;
+}
+
+.header p {
+  font-size: 14px;
+  color: #888888;
+}
+
+.dark .header p {
+  color: #bbb;
+}
+
+.input-box {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 8px;
+  border: none;
+  background: #f3f3f3;
+  outline: none;
+  color: #333;
+}
+
+.dark .input-box {
+  background: #222;
+  color: #ddd;
+}
+
+.notes-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.notes-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 10px;
+}
+
+.note {
+  padding: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.dark .note {
+  background: #000;
+  color: #fff;
+}
+
+.note h3 {
+  font-size: 16px;
+}
+
+.note span {
+  font-size: 12px;
+  color: #888;
+}
+
+.dark .note span {
+  color: #bbb;
+}
+
+.arrow-btn {
+  border: none;
+  background: #f1f1f1;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+}
+
+.dark .arrow-btn {
+  background: #000;
+  color: #fff;
+}
+
+.add-note-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background: #4c8bf5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-note-btn:hover {
+  background: #3b7ce5;
+}
+
+.switch {
+  position: relative;
+  width: 45px;
+  height: 24px;
+}
+
+.switch input { display: none; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background: #4c8bf5;
+}
+
+input:checked + .slider::before {
+  transform: translateX(21px);
+}
