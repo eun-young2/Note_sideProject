@@ -8,7 +8,8 @@ function Home({ user, setUser }) {
   const [darkMode, setDarkMode] = useState(false);
   const [notes, setNotes] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
-  const [sortOrder, setSortOrder] = useState("recent"); 
+  const [sortOrder, setSortOrder] = useState("recent");
+  const [searchTerm, setSearchTerm] = useState("");  // ✅ 검색어 상태 추가 
 
   useEffect(() => {
     fetchNotes();
@@ -75,6 +76,11 @@ function Home({ user, setUser }) {
     setSortOrder(selectedSort); // ✅ 상태 업데이트
 };
 
+ // ✅ 검색된 노트만 필터링
+ const filteredNotes = notes.filter(note => 
+  note.title.toLowerCase().includes(searchTerm.toLowerCase())
+);
+
   const handleLogout = () => {
     setUser(null);  // 상태 초기화
     localStorage.removeItem("user");  // ✅ 로그인 정보 삭제
@@ -112,30 +118,35 @@ function Home({ user, setUser }) {
        
         </div>
 
-        <input className="input-box" placeholder="검색"/>
+        <input 
+          className="input-box" 
+          placeholder="검색어 입력" 
+          value={searchTerm} 
+          onChange={(e) => setSearchTerm(e.target.value)} 
+        />
         <select className="input-box" onChange={handleSortChange}>
           <option>최근순</option>
           <option>오래된순</option>
         </select>
 
         <div className="notes-container">
-  <button className="arrow-btn" onClick={prev}>◀</button>
+  <button className="arrow-btn" onClick={() => setStartIndex(prev => Math.max(prev - 1, 0))}>◀</button>
   <div className="notes-list">
   {user ? (
-      notes.length > 0 ? (
-        notes.slice(startIndex, startIndex + 3).map((note) => (
-          <div 
-            key={note.id} 
-            className="note" 
-            onClick={() => goToNoteDetail(note.id)}
-          >
-            <h3>{note.title}</h3>
-            <span>{new Date(note.updated_at).toLocaleString()}</span>
-          </div>
-        ))
-      ) : (
-        <p>📢 불러올 노트가 없습니다.</p>
-      )
+    filteredNotes.length > 0 ? (  // 🔹 ✅ 필터링된 노트를 사용
+      filteredNotes.slice(startIndex, startIndex + 3).map((note) => (
+        <div 
+          key={note.id} 
+          className="note" 
+          onClick={() => navigate(`/note/${note.id}`)}
+        >
+          <h3>{note.title}</h3>
+          <span>{new Date(note.updated_at).toLocaleString()}</span>
+        </div>
+      ))
+    ) : (
+      <p>📢 검색 결과가 없습니다.</p>  // 🔹 검색 결과 없을 때 메시지
+    )
     ) : (
       <p className="locked-note">🔒 로그인 후 노트 확인 가능 합니다.</p>
     )}
