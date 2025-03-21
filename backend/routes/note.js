@@ -5,7 +5,9 @@ const db = require('../config/database');
 // 전체 노트 가져오기
 // ✅ 전체 노트 가져오기 API
 router.get("/", (req, res) => {
-    const sql = "SELECT * FROM notes ORDER BY created_at DESC";
+    const sortOrder = req.query.sort === "oldest" ? "ASC" : "DESC"; // ✅ 기본값은 최신순
+    console.log("📌 정렬 요청 값:", sortOrder); // ✅ 값 확인
+    const sql = `SELECT * FROM notes ORDER BY created_at ${sortOrder}`;
     db.query(sql, (err, results) => {
         if (err) {
             console.error("❌ DB 조회 실패:", err);
@@ -68,7 +70,7 @@ router.get("/", (req, res) => {
     })
   })
 
-  // 노트 수정하기기
+  // 노트 수정하기
   router.put('/:id',(req,res)=>{
     const {id} = req.params;
     const {title,content} = req.body;
@@ -91,4 +93,5 @@ router.get("/", (req, res) => {
         res.status(200).json({ message: "노트 수정 완료", updatedId: id });
     })
   })
+
 module.exports = router;

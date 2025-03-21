@@ -8,15 +8,16 @@ function Home({ user, setUser }) {
   const [darkMode, setDarkMode] = useState(false);
   const [notes, setNotes] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
+  const [sortOrder, setSortOrder] = useState("recent"); 
 
   useEffect(() => {
     fetchNotes();
-  }, []);
+  }, [sortOrder]);
 
   const fetchNotes = () => {
-    console.log("📢 노트 데이터를 가져오는 중..."); // 로그 추가
+    console.log(`📢 노트 데이터를 가져오는 중... 정렬: ${sortOrder}`);
   
-    axios.get('http://localhost:8000/note')
+    axios.get(`http://localhost:8000/note?sort=${sortOrder}`)
       .then(res => {
         console.log("✅ 노트 데이터 수신:", res.data); // 받아온 데이터 확인
         setNotes(res.data);
@@ -68,6 +69,12 @@ function Home({ user, setUser }) {
     }
   };
 
+  // ✅ 정렬 옵션 변경 이벤트
+  const handleSortChange = (event) => {
+    const selectedSort = event.target.value === "오래된순" ? "oldest" : "latest"; // ✅ 한글 값 변환
+    setSortOrder(selectedSort); // ✅ 상태 업데이트
+};
+
   const handleLogout = () => {
     setUser(null);  // 상태 초기화
     localStorage.removeItem("user");  // ✅ 로그인 정보 삭제
@@ -106,7 +113,7 @@ function Home({ user, setUser }) {
         </div>
 
         <input className="input-box" placeholder="검색"/>
-        <select className="input-box">
+        <select className="input-box" onChange={handleSortChange}>
           <option>최근순</option>
           <option>오래된순</option>
         </select>
