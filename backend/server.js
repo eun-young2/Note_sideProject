@@ -10,6 +10,7 @@ const port = 8000;
 
 //const indexRouter = require("./routes");
 const noteRouter = require("./routes/note");
+const userRouter = require("./routes/user");
 
 app.use(cors({
     origin: "http://localhost:3001",
@@ -35,6 +36,7 @@ app.use(
 
 //app.use("/", indexRouter);
 app.use("/note", noteRouter);
+app.use("/user", userRouter);
 
 app.listen(port, () => {
   console.log(`✅ 서버 실행중: http://localhost:${port}`);

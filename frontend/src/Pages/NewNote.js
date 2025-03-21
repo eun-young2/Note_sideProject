@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './NewNote.css';
 
-function NewNote() {
+function NewNote({ user, setUser }) {
   const navigate = useNavigate();
   const [note, setNote] = useState({ title: '', content: '' });
   const [darkMode, setDarkMode] = useState(() => {
@@ -36,8 +36,23 @@ function NewNote() {
     });
   };
 
+  // ✅ 로그아웃 기능
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.removeItem("user");
+    alert("로그아웃 되었습니다.");
+    navigate('/');
+  };
+
   return (
     <div className={`background ${darkMode ? 'dark' : ''}`}> {/* ✅ 다크모드 적용 */}
+      {/* ✅ 사용자 정보 영역 (화면 우측 상단) */}
+      {user && (
+        <div className="user-menu">
+          <span>{user} 님 환영합니다!</span>
+          <button onClick={handleLogout}>로그아웃</button>
+        </div>
+      )}
       <div className="card">
         <div className="header">
           <h2>새 노트 추가</h2>

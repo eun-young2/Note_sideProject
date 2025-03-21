@@ -26,6 +26,7 @@ router.get("/", (req, res) => {
     });
   });
 
+  // 노트 등록하기기
   router.post('/enter',(req,res)=>{
     const {title, content} = req.body;
 
@@ -43,6 +44,7 @@ router.get("/", (req, res) => {
     })
   })
 
+  // 노트 삭제하기기
   router.delete('/:id', (req,res)=>{
     const {id} = req.params;
 
@@ -66,6 +68,7 @@ router.get("/", (req, res) => {
     })
   })
 
+  // 노트 수정하기기
   router.put('/:id',(req,res)=>{
     const {id} = req.params;
     const {title,content} = req.body;

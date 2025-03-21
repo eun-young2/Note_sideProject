@@ -176,3 +176,129 @@ input:checked + .slider {
 input:checked + .slider::before {
   transform: translateX(21px);
 }
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-menu button {
+  padding: 6px 10px;
+  border: none;
+  background: #5b8df2;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.user-menu button:hover {
+  background: #4675d8;
+}
+
+/* ✅ 로그인 정보 및 버튼을 화면 우측 상단으로 이동 */
+.user-menu {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 8px 16px;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  z-index: 999;
+}
+
+.user-menu button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #5b8df2;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.user-menu button:hover {
+  background: #3a6edc;
+}
+
+/* ✅ 헤더 스타일 */
+.header {
+  display: flex;
+  justify-content: space-between;  /* 왼쪽: 제목, 오른쪽: 토글 */
+  align-items: center;
+  width: 100%;
+  position: relative;  /* ✅ 내부 요소 기준 */
+}
+
+/* ✅ 다크모드 대응 */
+/* ✅ 카드 내부 토글 위치 조정 */
+.switch {
+  position: relative;  /* 부모 .header 기준 */
+  width: 40px;
+  height: 20px;
+  margin-left: auto;  /* 오른쪽 정렬 */
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #5b8df2;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* ✅ 다크모드 적용 */
+.dark .user-menu {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+.dark .user-menu button {
+  background-color: #2563eb;
+}
+
+.dark .user-menu button:hover {
+  background-color: #1d4ed8;
+}
+
+.dark .slider {
+  background-color: #888;
+}
+
+.dark input:checked + .slider {
+  background-color: #3b82f6;
+}
