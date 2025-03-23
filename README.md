@@ -26,6 +26,7 @@
 ## ⛏ 기술스택
 * React
 * Node.js
+* MySQL
 
 <br>
 
@@ -65,6 +66,12 @@
 ![image](https://github.com/user-attachments/assets/3f6b4fbd-45ec-49eb-94d2-ef456eb2dfc6)
 
 
+
+
+<br>
+
+### DB설계계
+![image](https://github.com/user-attachments/assets/84d61850-fc1a-4c79-930e-56551c0882a2)
 
 
 <br>
