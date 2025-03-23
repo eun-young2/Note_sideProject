@@ -8,19 +8,20 @@ import Login from './Pages/Login';
 
 function App() {
   const [user, setUser] = useState(() => {
-    return localStorage.getItem("user");
+    const storedUser = localStorage.getItem("user");
+  return storedUser ? JSON.parse(storedUser) : null;
   });
 
   useEffect(() => {
-    localStorage.setItem("user", user);
+    localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home user={user} setUser={setUser} />} /> {/* ✅ 수정 */}
-        <Route path="/note/:id" element={<NoteDetail user={user} />} />
-        <Route path="/new" element={<NewNote user={user} />} />
+        <Route path="/note/:id" element={<NoteDetail user={user} setUser={setUser}  />} />
+        <Route path="/new" element={<NewNote user={user} setUser={setUser}/>} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
       </Routes>

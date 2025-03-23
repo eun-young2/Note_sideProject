@@ -5,10 +5,12 @@ const db = require('../config/database');
 // 전체 노트 가져오기
 // ✅ 전체 노트 가져오기 API
 router.get("/", (req, res) => {
-    const sortOrder = req.query.sort === "oldest" ? "ASC" : "DESC"; // ✅ 기본값은 최신순
+    const {user_id, sort} = req.query;
+    const sortOrder = sort === "oldest" ? "ASC" : "DESC"; // ✅ 기본값은 최신순
     console.log("📌 정렬 요청 값:", sortOrder); // ✅ 값 확인
-    const sql = `SELECT * FROM notes ORDER BY created_at ${sortOrder}`;
-    db.query(sql, (err, results) => {
+   
+    const sql = `SELECT * FROM notes WHERE user_id = ? ORDER BY created_at ${sortOrder}`;
+    db.query(sql,[user_id], (err, results) => {
         if (err) {
             console.error("❌ DB 조회 실패:", err);
             return res.status(500).json({ error: "서버 오류" });
@@ -30,13 +32,14 @@ router.get("/", (req, res) => {
 
   // 노트 등록하기기
   router.post('/enter',(req,res)=>{
-    const {title, content} = req.body;
+    const {title, content, user_id} = req.body;
+    console.log("📥 노트 저장 요청:", req.body);
 
     if(!title||!content){
         return res.status(400).json({ error:"제목과 내용을 입력해주세요!"});
     }
-    const sql = "INSERT INTO notes (title,content,created_at,updated_at) VALUES (?,?,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)";
-    db.query(sql,[title,content],(err,results)=>{
+    const sql = "INSERT INTO notes (title,content,created_at,updated_at,user_id) VALUES (?,?,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,?)";
+    db.query(sql,[title,content,user_id],(err,results)=>{
         if(err){
             console.error("데이터 삽입 실패", err);
             return res.status(500).json({ error: "서버 오류" });

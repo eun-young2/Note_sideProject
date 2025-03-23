@@ -13,7 +13,7 @@ const noteRouter = require("./routes/note");
 const userRouter = require("./routes/user");
 
 app.use(cors({
-    origin: "http://localhost:3001",
+    origin: "http://localhost:3000",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true
 }));

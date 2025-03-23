@@ -15,8 +15,28 @@ function Login({ setUser }) {
     axios.post('http://localhost:8000/user/login', form)
       .then(res => {
         alert(`환영합니다, ${res.data.nickname} 님!`);
-        setUser(res.data.nickname);
-        localStorage.setItem("user", res.data.nickname);
+
+        // 🛑 user_id가 undefined인지 확인
+        console.log("✅ 로그인 성공! 백엔드 응답 데이터:", res.data);
+
+        // 🛑 user_id가 undefined면 에러 처리
+        if (!res.data.user_id) {
+            console.error("❌ user_id가 응답에서 누락됨!", res.data);
+            alert("로그인에 문제가 발생했습니다. 관리자에게 문의하세요.");
+            return;
+        }
+
+        const userData = {id:res.data.user_id, nickname:res.data.nickname}
+
+        console.log("✅ 로그인 성공! 저장할 userData:", userData);
+        //console.log("💡 userData 타입:", typeof userData); // → object
+        //console.log("💡 JSON.stringify(userData):", JSON.stringify(userData));
+
+        
+        localStorage.setItem("user", JSON.stringify(userData));
+        //console.log("💾 저장된 값:", localStorage.getItem("user"));
+        setUser(userData);
+        
         navigate('/');
       })
       .catch(err => alert("❌ 로그인 실패: ID 또는 비밀번호를 확인하세요."));

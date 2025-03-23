@@ -55,7 +55,7 @@ function NoteDetail({ user, setUser }) {
       {/* ✅ 사용자 정보 영역 (화면 우측 상단) */}
       {user && (
         <div className="user-menu">
-          <span>{user} 님 환영합니다!</span>
+          <span>{user.nickname} 님 환영합니다!</span>
           <button onClick={handleLogout}>로그아웃</button>
         </div>
       )}

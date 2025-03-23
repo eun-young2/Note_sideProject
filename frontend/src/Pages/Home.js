@@ -10,15 +10,42 @@ function Home({ user, setUser }) {
   const [startIndex, setStartIndex] = useState(0);
   const [sortOrder, setSortOrder] = useState("recent");
   const [searchTerm, setSearchTerm] = useState("");  // ✅ 검색어 상태 추가 
-
+  
+  const nickname = user ? user.nickname : "Guest"; 
   useEffect(() => {
     fetchNotes();
   }, [sortOrder]);
 
+  // useEffect(() => {
+   // const storedUser = localStorage.getItem("user");
+  //  console.log(localStorage.getItem("user"));
+   // console.log("📢 localStorage에서 불러온 user (문자열):", storedUser);
+   // console.log("📢 storedUser의 타입:", typeof storedUser);
+    
+   // if (storedUser) {
+   //   try {
+    //    const parsedUser = JSON.parse(storedUser);
+       // console.log("📢 저장된 사용자 데이터:", parsedUser);
+    //    setUser(parsedUser || {}); // ✅ user가 null이면 빈 객체로 대체
+   //   } catch (error) {
+   //     console.error("❌ 사용자 데이터 파싱 실패:", error);
+   //     localStorage.removeItem("user");  // ❗ 문제 있는 값 삭제
+    //    setUser({}); // ✅ 에러 발생 시 빈 객체로 설정
+    //  }
+  //  }
+//}, []);
+
+useEffect(() => {
+  if (user && user.id) {
+    fetchNotes();
+  }
+}, [user, sortOrder]);
+
   const fetchNotes = () => {
+    if(!user) return;
     console.log(`📢 노트 데이터를 가져오는 중... 정렬: ${sortOrder}`);
   
-    axios.get(`http://localhost:8000/note?sort=${sortOrder}`)
+    axios.get(`http://localhost:8000/note?user_id=${user.id}&sort=${sortOrder}`)
       .then(res => {
         console.log("✅ 노트 데이터 수신:", res.data); // 받아온 데이터 확인
         setNotes(res.data);
@@ -47,12 +74,21 @@ function Home({ user, setUser }) {
   };
 
   const addNewNote = () => {
+    if (!user||!user.id) {
+      alert("로그인 후 메모를 작성할 수 있습니다!");
+      navigate("/login");
+      return;
+  }
+
     const newNote = {
       title: `새로운 노트 ${notes.length + 1}`,
-      content: '새 노트의 내용을 입력해주세요.'
+      content: '새 노트의 내용을 입력해주세요.',
+      user_id : user.id
     };
 
-    axios.get('/note', newNote)
+    console.log("📢 노트 생성 요청 데이터:", newNote);
+
+    axios.post('http://localhost:8000/note/enter', newNote)
       .then(() => fetchNotes())
       .catch(err => console.error(err));
   };
@@ -93,7 +129,7 @@ function Home({ user, setUser }) {
        <div className="user-menu">
             {user ? (
               <>
-                <span>{user} 님 환영합니다!</span>
+                <span>{user.nickname} 님 환영합니다!</span>
                 <button onClick={handleLogout}>로그아웃</button> {/* ✅ 로그아웃 버튼 */}
               </>
             ) : (

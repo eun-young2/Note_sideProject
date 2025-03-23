@@ -19,8 +19,20 @@ function NewNote({ user, setUser }) {
       alert('제목과 내용을 입력해주세요!');
       return;
     }
+    if (!user || !user.id) {
+      alert("로그인이 필요합니다!");
+      navigate('/login');
+      return;
+    }
 
-    axios.post('http://localhost:8000/note/enter', note)
+    const noteWithUser = {
+      ...note,
+      user_id: user.id, // ✅ user_id 추가
+    };
+
+    console.log("📥 노트 저장 요청:", noteWithUser);
+
+    axios.post('http://localhost:8000/note/enter', noteWithUser)
       .then(() => {
         navigate('/'); // 저장 후 홈으로 이동
       })
@@ -49,7 +61,7 @@ function NewNote({ user, setUser }) {
       {/* ✅ 사용자 정보 영역 (화면 우측 상단) */}
       {user && (
         <div className="user-menu">
-          <span>{user} 님 환영합니다!</span>
+          <span>{user.nickname} 님 환영합니다!</span>
           <button onClick={handleLogout}>로그아웃</button>
         </div>
       )}

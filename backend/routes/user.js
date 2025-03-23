@@ -22,11 +22,13 @@ router.post("/signup", async (req, res) => {
       if (err || results.length === 0) return res.status(401).json({ error: "ID 또는 비밀번호가 올바르지 않습니다." });
   
       const user = results[0];
+      console.log(user);
+      
       const match = await bcrypt.compare(password, user.password);
   
       if (match) {
         req.session.user = user.nickname;
-        res.json({ nickname: user.nickname });
+        res.json({ user_id : user.user_id,nickname: user.nickname });
       } else {
         res.status(401).json({ error: "ID 또는 비밀번호가 올바르지 않습니다." });
       }
