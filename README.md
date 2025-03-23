@@ -79,3 +79,9 @@
 ## 💡 트러블슈팅
   
 *<br>
+![image](https://github.com/user-attachments/assets/1b239f60-0f83-4bea-8242-4b90a918b56e)
+<br>
+*문제 : 닉네임을 파싱해야하는데 계속 object로 파싱되서 닉네임이 안뜨는 문제 발생
+<br>
+*해결 : App.js에서 user를 전역으로 관리했기 때문에 JSON.stringify해서 문자열로 저장 <br>
+        JSON.parse해서 문자열 파싱 및 props로 각 페이지에서 쓸 수 있게 만듦
