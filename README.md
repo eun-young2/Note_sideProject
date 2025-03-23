@@ -70,7 +70,7 @@
 
 <br>
 
-### DB설계계
+### DB설계
 ![image](https://github.com/user-attachments/assets/84d61850-fc1a-4c79-930e-56551c0882a2)
 
 
