@@ -71,7 +71,8 @@
 <br>
 
 ### DB설계
-![image](https://github.com/user-attachments/assets/84d61850-fc1a-4c79-930e-56551c0882a2)
+![image](https://github.com/user-attachments/assets/3ca82cd8-0c83-4c16-b65c-884ddde7b12c)
+
 
 
 <br>
