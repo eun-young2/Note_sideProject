@@ -43,8 +43,9 @@
 <br>
 
 ### 노트 수정 및 삭제 페이지
-![image](https://github.com/user-attachments/assets/e567a2a2-c70b-4f3c-a111-e6801155e00b)
-![image](https://github.com/user-attachments/assets/7af2cf70-3522-453d-a03e-f218bbeb7f9f)
+![image](https://github.com/user-attachments/assets/7a370211-ecdd-4c15-998d-573084073d99)
+![image](https://github.com/user-attachments/assets/98877bd0-8af0-4b1d-9523-b99262e8c6ce)
+
 
 
 
@@ -53,8 +54,9 @@
 <br>
 
 ### 노트 검색
-![image](https://github.com/user-attachments/assets/53b1c883-51db-4b1c-8149-2dcf18121ec1)
-![image](https://github.com/user-attachments/assets/2090bb1e-0b5b-460d-80b9-6d644143f9eb)
+![image](https://github.com/user-attachments/assets/02c1534b-6801-48a8-a880-28079e505507)
+![image](https://github.com/user-attachments/assets/4152ed12-24e4-42c4-a576-50a17be50507)
+
 
 
 
