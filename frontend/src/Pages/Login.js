@@ -33,7 +33,7 @@ function Login({ setUser }) {
         //console.log("💡 JSON.stringify(userData):", JSON.stringify(userData));
 
         
-        localStorage.setItem("user", JSON.stringify(userData));
+       // localStorage.setItem("user", JSON.stringify(userData));
         //console.log("💾 저장된 값:", localStorage.getItem("user"));
         setUser(userData);
         
