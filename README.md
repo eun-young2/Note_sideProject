@@ -86,6 +86,7 @@
 <br>
 *<b>문제 :</b> 닉네임을 화면에 표시하려 했지만, localStorage에 저장된 user 데이터가 [object Object]로 출력, 닉네임이 제대로 뜨지 않는 문제 발생.
 <br>
-*<b>해결 :</b> App.js에서 user 상태를 전역으로 관리하며 localStorage에 저장할 때 JSON.stringify(user)로 문자열로 변환하여 저장.<br>
+*<b>해결 :</b> <br>
+              App.js에서 user 상태를 전역으로 관리하며 localStorage에 저장할 때 JSON.stringify(user)로 문자열로 변환하여 저장.<br>
               useState 초기값을 설정할 때 JSON.parse()를 사용해 문자열을 객체로 복구. <br>
               이렇게 전역으로 관리한 user를 각 페이지에 props로 전달해 닉네임 표시 등 사용자 정보를 안전하게 사용할 수 있도록 개선함.<br>
