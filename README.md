@@ -1,9 +1,11 @@
 # 📎 심플노트
 
 ## 기본 화이트모드
-![캡처](https://github.com/user-attachments/assets/4ffb6d6e-5902-41e4-b411-fab106de4553)
+![image](https://github.com/user-attachments/assets/97509ca1-dd4a-4506-8c02-c16c5ed056b9)
+
 ## 다크모드
-![캡처](https://github.com/user-attachments/assets/c5abb741-5c29-496f-8b82-f8983b3aa54d)
+![image](https://github.com/user-attachments/assets/33ed047b-9700-408b-8b91-daf3e2df05f1)
+
 
 
 ## 👀 서비스 소개
@@ -33,8 +35,8 @@
 ## 🖥 화면 구성
 
 ### 노트 등록 페이지
-![image](https://github.com/user-attachments/assets/96fbf1cf-dad6-44d1-b401-c93a1b3a9f62)
-![image](https://github.com/user-attachments/assets/42020c67-d310-4ed9-9915-8d8732c4307f)
+![image](https://github.com/user-attachments/assets/6674156e-0bed-467c-9021-6a65e417c20a)
+![image](https://github.com/user-attachments/assets/f6974f08-cde4-4547-9109-e4c3a967fba2)
 
 
 
@@ -43,8 +45,9 @@
 <br>
 
 ### 노트 수정 및 삭제 페이지
-![image](https://github.com/user-attachments/assets/7a370211-ecdd-4c15-998d-573084073d99)
-![image](https://github.com/user-attachments/assets/98877bd0-8af0-4b1d-9523-b99262e8c6ce)
+![image](https://github.com/user-attachments/assets/57e9835b-a2ba-429e-ba66-2a216bba9fb0)
+![image](https://github.com/user-attachments/assets/5145e275-4798-48a3-bd1d-33931899cf13)
+
 
 
 
@@ -54,8 +57,9 @@
 <br>
 
 ### 노트 검색
-![image](https://github.com/user-attachments/assets/02c1534b-6801-48a8-a880-28079e505507)
-![image](https://github.com/user-attachments/assets/4152ed12-24e4-42c4-a576-50a17be50507)
+![image](https://github.com/user-attachments/assets/90cf0e7d-989e-4342-97bc-dc41f0736915)
+![image](https://github.com/user-attachments/assets/3fccd640-ccb3-455c-b405-3fa9aaa493c2)
+
 
 
 
